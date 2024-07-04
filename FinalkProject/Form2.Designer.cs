@@ -30,7 +30,6 @@
         {
             dataGridView1 = new DataGridView();
             button1 = new Button();
-            maskedTextBox1 = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -41,6 +40,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(334, 205);
             dataGridView1.TabIndex = 0;
+            dataGridView1.Click += dataGridView1_Click;
             // 
             // button1
             // 
@@ -52,32 +52,23 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.Location = new Point(360, 136);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(346, 23);
-            maskedTextBox1.TabIndex = 2;
-            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1371, 703);
-            Controls.Add(maskedTextBox1);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridView1;
         private Button button1;
-        private MaskedTextBox maskedTextBox1;
     }
 }

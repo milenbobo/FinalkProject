@@ -13,7 +13,7 @@ namespace FinalkProject
 {
     public partial class Form2 : Form
     {
-        
+
         static private string connectionString = "Server=sql7.freesqldatabase.com;Port=3306;Database=sql7717504;User=sql7717504;Password=v4GgVVETDJ;";
         public Form2()
         {
@@ -32,7 +32,8 @@ namespace FinalkProject
                 try
                 {
                     conn.Open();
-                    string query = "SELECT * FROM Users";
+                    string query = "SELECT Username FROM Users;";
+                    ;
                     MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -43,6 +44,16 @@ namespace FinalkProject
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
