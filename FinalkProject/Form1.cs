@@ -200,10 +200,10 @@ namespace FinalkProject
                 string[] asd = item.Split("; ");
                 if (emailtxt.Text == asd[0] && passwordtxt.Text == asd[1] && usernametxt.Text == asd[2])
                 {
-                    MessageBox.Show("successfull login");
-                    Form2 form2 = new Form2();
-                    this.Hide();
+                    MessageBox.Show("successful login");
+                    Form2 form2 = new Form2(usernametxt.Text);
                     form2.ShowDialog();
+                    this.Close();
                     break;
                 }
             }

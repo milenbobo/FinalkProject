@@ -1,6 +1,6 @@
 ﻿namespace FinalkProject
 {
-    partial class Form2
+    partial class Form3
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
-            // dataGridView1
+            // textBox1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(334, 205);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellClick += dataGridView1_CellClick;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            textBox1.Location = new Point(12, 415);
+            textBox1.MaxLength = 1000;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(776, 23);
+            textBox1.TabIndex = 0;
+            textBox1.KeyPress += textBox1_KeyPress;
             // 
-            // Form2
+            // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1193, 630);
-            Controls.Add(dataGridView1);
-            Name = "Form2";
-            Text = "Form2";
-            Load += Form2_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ClientSize = new Size(800, 450);
+            Controls.Add(textBox1);
+            Name = "Form3";
+            Text = "Form3";
+            Load += Form3_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private TextBox textBox1;
     }
 }

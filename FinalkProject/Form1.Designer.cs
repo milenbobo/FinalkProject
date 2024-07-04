@@ -42,7 +42,6 @@
             usernameerror4 = new Label();
             dataGridView1 = new DataGridView();
             listBox1 = new ListBox();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -176,22 +175,11 @@
             listBox1.Size = new Size(552, 274);
             listBox1.TabIndex = 13;
             // 
-            // button1
-            // 
-            button1.Location = new Point(334, 461);
-            button1.Name = "button1";
-            button1.Size = new Size(127, 120);
-            button1.TabIndex = 14;
-            button1.Text = "start sending too many messages";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1452, 690);
-            Controls.Add(button1);
             Controls.Add(listBox1);
             Controls.Add(dataGridView1);
             Controls.Add(usernameerror4);
@@ -229,6 +217,5 @@
         private Label usernameerror4;
         private DataGridView dataGridView1;
         private ListBox listBox1;
-        private Button button1;
     }
 }

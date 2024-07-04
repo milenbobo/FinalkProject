@@ -15,16 +15,16 @@ namespace FinalkProject
     {
 
         static private string connectionString = "Server=sql7.freesqldatabase.com;Port=3306;Database=sql7717504;User=sql7717504;Password=v4GgVVETDJ;";
-        public Form2()
+        string user = null;
+        string receiver = null;
+        public Form2(string User)
         {
             InitializeComponent();
+            user = User;
             RetrieveData();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
         private void RetrieveData()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -51,9 +51,19 @@ namespace FinalkProject
 
         }
 
-        private void dataGridView1_Click(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var cellValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            receiver = cellValue;
+           
+            Form3 form = new Form3(user, receiver);
+            form.ShowDialog();
+            this.Close();
         }
     }
 }
