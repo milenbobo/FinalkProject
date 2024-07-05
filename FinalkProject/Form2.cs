@@ -33,7 +33,7 @@ namespace FinalkProject
                 {
                     conn.Open();
                     string query = "SELECT Username FROM Users;";
-                    ;
+                    
                     MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -45,11 +45,7 @@ namespace FinalkProject
                 }
             }
         }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -59,11 +55,18 @@ namespace FinalkProject
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var cellValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            receiver = cellValue;
-           
-            Form3 form = new Form3(user, receiver);
-            form.ShowDialog();
-            this.Close();
+            if (user == cellValue)
+            {
+                MessageBox.Show("you cannot message yourself silly");
+            }
+            else
+            {
+                receiver = cellValue;
+                Form3 form = new Form3(user, receiver);
+                form.ShowDialog();
+                this.Close();
+            }
+            
         }
     }
 }

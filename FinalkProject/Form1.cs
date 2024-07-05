@@ -89,17 +89,23 @@ namespace FinalkProject
                     try
                     {
                         conn.Open();
-                        string query = "INSERT INTO Users (Email, Password, Username)\r\nVALUES (@Email, @Password, @Username);";
+                        string query = "INSERT INTO Users (Email, Password, Username) \r\n VALUES (@Email, @Password, @Username);";
 
                         using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@Email", email);
                             cmd.Parameters.AddWithValue("@Password", password);
-                            cmd.Parameters.AddWithValue("@Username", username);
+                            cmd.Parameters.AddWithValue("@Username", username );
                             cmd.ExecuteNonQuery();
                         }
                         List<string> Users = FetchUsersFromDatabase();
                         listBox1.DataSource = Users;
+                        string[] asd = Users[1].Split(" ");
+                        foreach (var item in asd)
+                        {
+
+                        MessageBox.Show(item);
+                        }
                         RetrieveData();
                         MessageBox.Show("Data inserted successfully!");
 
@@ -169,14 +175,14 @@ namespace FinalkProject
                 try
                 {
                     conn.Open();
-                    string query = "SELECT Email, Password, Username FROM Users";
+                    string query = "SELECT * FROM Users";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                users.Add(reader.GetString("Email") + "; " + reader.GetString("Password") + "; " + reader.GetString("Username"));
+                                users.Add(reader.GetString("Email") + " " + reader.GetString("Password") + " " + reader.GetString("Username") + "; ");
                             }
                         }
                     }
@@ -197,8 +203,8 @@ namespace FinalkProject
 
             foreach (var item in Users)
             {
-                string[] asd = item.Split("; ");
-                if (emailtxt.Text == asd[0] && passwordtxt.Text == asd[1] && usernametxt.Text == asd[2])
+                string[] asd = item.Split(" ");
+                if (emailtxt.Text == asd[0] && passwordtxt.Text == asd[1] && usernametxt.Text + ";" == asd[2])
                 {
                     MessageBox.Show("successful login");
                     Form2 form2 = new Form2(usernametxt.Text);

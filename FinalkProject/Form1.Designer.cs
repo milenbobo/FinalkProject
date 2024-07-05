@@ -73,6 +73,7 @@
             error1.Size = new Size(150, 15);
             error1.TabIndex = 2;
             error1.Text = "At least one special symbol";
+            error1.Visible = false;
             // 
             // error3
             // 
@@ -82,6 +83,7 @@
             error3.Size = new Size(102, 15);
             error3.TabIndex = 3;
             error3.Text = "At least 8 symbols";
+            error3.Visible = false;
             // 
             // error2
             // 
@@ -91,6 +93,7 @@
             error2.Size = new Size(137, 15);
             error2.TabIndex = 4;
             error2.Text = "At least one capital letter";
+            error2.Visible = false;
             // 
             // mailError3
             // 
@@ -100,6 +103,7 @@
             mailError3.Size = new Size(130, 15);
             mailError3.TabIndex = 7;
             mailError3.Text = "Incorrect email domain";
+            mailError3.Visible = false;
             // 
             // mailError1
             // 
@@ -109,6 +113,7 @@
             mailError1.Size = new Size(88, 15);
             mailError1.TabIndex = 6;
             mailError1.Text = "Too short email";
+            mailError1.Visible = false;
             // 
             // mailError2
             // 
@@ -118,6 +123,7 @@
             mailError2.Size = new Size(85, 15);
             mailError2.TabIndex = 5;
             mailError2.Text = "Too long email";
+            mailError2.Visible = false;
             // 
             // usernameerror2
             // 
@@ -127,6 +133,7 @@
             usernameerror2.Size = new Size(119, 15);
             usernameerror2.TabIndex = 10;
             usernameerror2.Text = "Username is too long";
+            usernameerror2.Visible = false;
             // 
             // usernameerror3
             // 
@@ -136,15 +143,18 @@
             usernameerror3.Size = new Size(122, 15);
             usernameerror3.TabIndex = 9;
             usernameerror3.Text = "Username is too short";
+            usernameerror3.Visible = false;
             // 
             // usernameerror1
             // 
+            usernameerror1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             usernameerror1.AutoSize = true;
             usernameerror1.Location = new Point(220, 320);
             usernameerror1.Name = "usernameerror1";
             usernameerror1.Size = new Size(190, 15);
             usernameerror1.TabIndex = 8;
             usernameerror1.Text = "Username cannot contain symbols";
+            usernameerror1.Visible = false;
             // 
             // usernameerror4
             // 
@@ -154,6 +164,7 @@
             usernameerror4.Size = new Size(107, 15);
             usernameerror4.TabIndex = 11;
             usernameerror4.Text = "not a unique name";
+            usernameerror4.Visible = false;
             // 
             // dataGridView1
             // 

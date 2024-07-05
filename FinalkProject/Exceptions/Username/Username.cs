@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,11 +46,12 @@ namespace WinFormsApp4
             }
             foreach (var item in Users)
             {
-                string[] asd = item.Split("; ");
-                if (username == asd[1])
+                string[] asd = item.Split(" ");
+                if (Name + ";" == asd[2])
                 {
-                    usernameerror4.Visible = true;
                     ExceptionCatcher = new InvalidUsernameException();
+                    usernameerror4.Visible = true;
+                    break;
                 }
             }
             if (ExceptionCatcher != null)

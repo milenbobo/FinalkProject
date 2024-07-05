@@ -50,7 +50,6 @@
             Controls.Add(dataGridView1);
             Name = "Form2";
             Text = "Form2";
-            Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
