@@ -46,6 +46,7 @@ namespace WinFormsApp4
             }
             foreach (var item in Users)
             {
+                MessageBox.Show(item);
                 string[] asd = item.Split(" ");
                 if (Name + ";" == asd[2])
                 {

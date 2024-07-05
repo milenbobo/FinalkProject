@@ -29,7 +29,7 @@ namespace FinalkProject
             List<string> users = FetchMessagesFromDatabase();
             foreach (var item in users)
             {
-                string[] strings = item.Split(" ");
+                string[] strings = item.Split("; ;");
                 if (strings[2] == User)
                 {
                     CreateMessageBox(strings[0], strings[1], strings[2], false, true);
@@ -61,9 +61,9 @@ namespace FinalkProject
                         DateTime dateTime = DateTime.Now;
                         using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         {
-                            cmd.Parameters.AddWithValue("@Message", textBox1.Text);
-                            cmd.Parameters.AddWithValue("@Sender", User);
-                            cmd.Parameters.AddWithValue("@Receiver", Receiver);
+                            cmd.Parameters.AddWithValue("@Message", textBox1.Text + "; ;");
+                            cmd.Parameters.AddWithValue("@Sender", User + "; ;");
+                            cmd.Parameters.AddWithValue("@Receiver", Receiver + "; ;");
                             cmd.Parameters.AddWithValue("@DateOfMessage", dateTime);
                             CreateMessageBox(textBox1.Text, User, Receiver, true, false);
                             cmd.ExecuteNonQuery();
@@ -90,6 +90,11 @@ namespace FinalkProject
                 Controls.Add(label);
                 Messageheight += 30;
                 VisibleMessages.Add(label);
+                PictureBox pictureBox1 = new PictureBox();
+                pictureBox1.Location = label.Location;
+                pictureBox1.Size = label.Size;
+                pictureBox1.BackColor = Color.Gray;
+                Controls.Add(pictureBox1);
             }
             if (receiverMessage)
             {
@@ -99,6 +104,11 @@ namespace FinalkProject
                 Controls.Add(label);
                 Messageheight += 30;
                 VisibleMessages.Add(label);
+                PictureBox pictureBox1 = new PictureBox();
+                pictureBox1.Location = label.Location;
+                pictureBox1.Size = label.Size;
+                pictureBox1.BackColor = Color.Gray;
+                Controls.Add(pictureBox1);
             }
         }
 
@@ -111,7 +121,7 @@ namespace FinalkProject
                 try
                 {
                     conn.Open();
-                    string query = $"SELECT * FROM Messages;";
+                    string query = $"SELECT Message, Sender, Receiver, Dateofmessage FROM Messages;";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -120,7 +130,7 @@ namespace FinalkProject
                             {
                                 if (reader.GetString("Sender") == User || reader.GetString("Sender") == Receiver || reader.GetString("Receiver") == Receiver || reader.GetString("Receiver") == User)
                                 {
-                                    Messages.Add(reader.GetString("Message") + " " + reader.GetString("Sender") + " " + reader.GetString("Receiver") + " " + reader.GetString("DateOfMessage") + "; ");
+                                    Messages.Add(reader.GetString("Message") + "; ;" + reader.GetString("Sender") + "; ;" + reader.GetString("Receiver") + "; ;" + reader.GetString("DateOfMessage") + "; ");
                                 }
                             }
                         }
@@ -145,7 +155,7 @@ namespace FinalkProject
                 }
                 foreach (var item in Messages)
                 {
-                    string[] strings = item.Split(" ");
+                    string[] strings = item.Split("; ;");
                     if (strings[2] == User)
                     {
                         CreateMessageBox(strings[0], strings[1], strings[2], false, true);
@@ -175,7 +185,7 @@ namespace FinalkProject
                         {
                             while (reader.Read())
                             {
-                                users.Add(reader.GetString("Message") + " " + reader.GetString("Sender") + " " + reader.GetString("Receiver") + " " + reader.GetString("DateOfMessage") + "; ");
+                                users.Add(reader.GetString("Message") + "; ;" + reader.GetString("Sender") + "; ;" + reader.GetString("Receiver") + "; ;" + reader.GetString("DateOfMessage") + "; ");
                             }
                         }
                     }

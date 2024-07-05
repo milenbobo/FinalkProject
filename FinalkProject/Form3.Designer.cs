@@ -31,12 +31,11 @@
             components = new System.ComponentModel.Container();
             textBox1 = new TextBox();
             timer1 = new System.Windows.Forms.Timer(components);
-            listBox1 = new ListBox();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 415);
+            textBox1.Location = new Point(12, 669);
             textBox1.MaxLength = 1000;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(776, 23);
@@ -49,21 +48,11 @@
             timer1.Interval = 5000;
             timer1.Tick += timer1_Tick;
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(507, 261);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 94);
-            listBox1.TabIndex = 1;
-            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(listBox1);
+            ClientSize = new Size(841, 704);
             Controls.Add(textBox1);
             Name = "Form3";
             Text = "Form3";
@@ -76,6 +65,5 @@
 
         private TextBox textBox1;
         private System.Windows.Forms.Timer timer1;
-        private ListBox listBox1;
     }
 }

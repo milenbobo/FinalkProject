@@ -101,11 +101,6 @@ namespace FinalkProject
                         List<string> Users = FetchUsersFromDatabase();
                         listBox1.DataSource = Users;
                         string[] asd = Users[1].Split(" ");
-                        foreach (var item in asd)
-                        {
-
-                        MessageBox.Show(item);
-                        }
                         RetrieveData();
                         MessageBox.Show("Data inserted successfully!");
                         conn.Close();
