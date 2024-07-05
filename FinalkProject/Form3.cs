@@ -56,6 +56,7 @@ namespace FinalkProject
                     try
                     {
                         conn.Open();
+                        
                         string query = "INSERT INTO Messages (Message, Sender, Receiver, DateOfMessage)\r\nVALUES (@Message, @Sender, @Receiver, @DateOfMessage);";
                         DateTime dateTime = DateTime.Now;
                         using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -68,6 +69,8 @@ namespace FinalkProject
                             cmd.ExecuteNonQuery();
                         }
                         MessageBox.Show("Data inserted successfully!");
+                        
+                        conn.Close();
 
                     }
                     catch (MySqlException ex)
@@ -115,13 +118,14 @@ namespace FinalkProject
                         {
                             while (reader.Read())
                             {
-                                if (reader.GetString("Sender") == User | reader.GetString("Receiver") == Receiver)
+                                if (reader.GetString("Sender") == User || reader.GetString("Sender") == Receiver || reader.GetString("Receiver") == Receiver || reader.GetString("Receiver") == User)
                                 {
                                     Messages.Add(reader.GetString("Message") + " " + reader.GetString("Sender") + " " + reader.GetString("Receiver") + " " + reader.GetString("DateOfMessage") + "; ");
                                 }
                             }
                         }
                     }
+                    conn.Close();
                 }
                 catch (MySqlException ex)
                 {
@@ -152,6 +156,7 @@ namespace FinalkProject
 
                     }
                 }
+                
             }
         }
         static private List<string> FetchMessagesFromDatabase()
@@ -174,6 +179,7 @@ namespace FinalkProject
                             }
                         }
                     }
+                    conn.Close();
                 }
                 catch (MySqlException ex)
                 {

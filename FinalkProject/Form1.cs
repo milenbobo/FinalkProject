@@ -108,6 +108,7 @@ namespace FinalkProject
                         }
                         RetrieveData();
                         MessageBox.Show("Data inserted successfully!");
+                        conn.Close();
 
                     }
                     catch (MySqlException ex)
@@ -186,6 +187,7 @@ namespace FinalkProject
                             }
                         }
                     }
+                    conn.Close();
                 }
                 catch (MySqlException ex)
                 {
@@ -226,6 +228,7 @@ namespace FinalkProject
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     dataGridView1.DataSource = dt;
+                    conn.Close();
                 }
                 catch (MySqlException ex)
                 {

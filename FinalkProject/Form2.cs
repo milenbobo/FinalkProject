@@ -38,6 +38,7 @@ namespace FinalkProject
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     dataGridView1.DataSource = dt;
+                    conn.Close();
                 }
                 catch (MySqlException ex)
                 {
